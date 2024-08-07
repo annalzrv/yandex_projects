@@ -1,6 +1,3 @@
-# yandex_projects
-This repository showcases my Data Science &amp; Machine Learning projects from Yandex Practicum’s 2-year extended Data Science Specialist program. It includes projects on data analysis, machine learning, database management, big data processing, and deep learning, demonstrating practical applications of these techniques.
-
 # Data Science Projects Portfolio
 
 This repository contains a collection of my Data Science projects completed as part of the 2-year extended Data Science Specialist program at Yandex Practicum. Each project demonstrates the application of various data analysis, machine learning, and deep learning techniques to solve real-world problems.
