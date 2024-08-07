@@ -39,7 +39,7 @@ This repository contains a collection of my Data Science projects completed as p
 
 ## Repository Structure
 
-- Each project is contained in its own directory with the following structure:
+Each project is contained in its own directory with the following structure:
   - `README.md`: Detailed project description, objectives, methodology, and results.
   - `notebooks/`: Jupyter notebooks with data analysis and model development.
   - `scripts/`: Python scripts for data preprocessing, model training, and evaluation.
