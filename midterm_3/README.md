@@ -35,29 +35,61 @@ The goal was to determine if it's possible to predict accidents based on histori
     - Summarized the best model and evaluated the feasibility of creating an adequate risk assessment system.
     - Identified additional factors for future data collection to improve the model.
 
-## Tables Used
+## Entity-Relationship (ER) Description
 
-- **collisions**: General information about accidents with a unique `case_id`.
-- **parties**: Information about accident participants with non-unique `case_id` matching the `collisions` table.
-- **vehicles**: Information about damaged vehicles with non-unique `case_id` and `party_number` matching the `collisions` and `parties` tables.
+The database consists of four main tables: **case_ids**, **vehicles**, **collisions**, and **parties**. Below is the ER diagram and a detailed description of each table and their relationships:
 
-## How to Use
+![ER Diagram](https://pictures.s3.yandex.net/resources/1.7_2880border_1_1654004672.png)
 
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/yourusername/car-accident-risk-assessment.git
-    ```
-2. Navigate to the project directory:
-    ```bash
-    cd car-accident-risk-assessment
-    ```
-3. Open the Jupyter notebook to explore the analysis and models:
-    ```bash
-    jupyter notebook notebooks/analysis.ipynb
-    ```
+### Tables
 
-## Contact
+- **case_ids**
+    - `case_id` (text): Unique identifier for each case.
+    - `Case_id` (text): Alternative identifier for the case.
 
-For any questions or suggestions, feel free to reach out:
-- **Email**: [your email]
-- **LinkedIn**: [your LinkedIn profile]
+- **vehicles**
+    - `id` (integer): Unique identifier for each vehicle entry.
+    - `case_id` (text): Foreign key referencing the `case_id` in the **case_ids** table.
+    - `party_number` (integer): Identifier for the party involved in the accident.
+    - `vehicle_type` (text): Type of vehicle.
+    - `vehicle_transmission` (text): Transmission type of the vehicle.
+    - `vehicle_age` (integer): Age of the vehicle.
+
+- **collisions**
+    - `case_id` (text): Unique identifier for each collision, linked to **case_ids**.
+    - `county_city_location` (text): Location of the collision.
+    - `county_location` (text): Detailed location within the county.
+    - `distance` (real): Distance covered.
+    - `direction` (text): Direction of travel.
+    - `intersection` (integer): Indicates if the collision occurred at an intersection.
+    - `weather_1` (text): Weather conditions at the time of the collision.
+    - `location_type` (text): Type of location (urban, rural, etc.).
+    - `collision_damage` (text): Extent of the damage.
+    - `party_count` (integer): Number of parties involved.
+    - `primary_collision_factor` (text): Main factor contributing to the collision.
+    - `pcf_violation_category` (text): Violation category.
+    - `type_of_collision` (text): Type of collision (rear-end, side-impact, etc.).
+    - `motor_vehicle_involved_with` (text): Other vehicles involved.
+    - `road_surface` (text): Condition of the road surface.
+    - `road_condition_1` (text): Additional road condition details.
+    - `lighting` (text): Lighting conditions at the time of the collision.
+    - `control_device` (text): Traffic control devices in use.
+    - `collision_date` (date): Date of the collision.
+    - `collision_time` (time): Time of the collision.
+
+- **parties**
+    - `id` (integer): Unique identifier for each party entry.
+    - `case_id` (text): Foreign key referencing the `case_id` in the **collisions** table.
+    - `party_number` (integer): Identifier for the party involved in the accident.
+    - `party_type` (text): Type of party (driver, pedestrian, etc.).
+    - `at_fault` (integer): Indicates if the party was at fault.
+    - `insurance_premium` (integer): Insurance premium amount.
+    - `party_sobriety` (text): Sobriety level of the party.
+    - `party_drug_physical` (text): Drug or physical condition of the party.
+    - `cellphone_in_use` (integer): Indicates if a cellphone was in use during the collision.
+
+### Relationships
+
+- **case_ids** to **vehicles**: One-to-many relationship through `case_id`.
+- **case_ids** to **collisions**: One-to-one relationship through `case_id`.
+- **collisions** to **parties**: One-to-many relationship through `case_id`.
