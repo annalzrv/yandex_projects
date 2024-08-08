@@ -1,100 +1,44 @@
-# Project: Car Accident Risk Assessment System
+# Data Science Projects Portfolio
 
-## Project Description
+This repository contains a collection of my Data Science projects completed as part of the 2-year extended Data Science Specialist program at Yandex Practicum. Each project demonstrates the application of various data analysis, machine learning, and deep learning techniques to solve real-world problems.
 
-As a Data Science specialist at a car-sharing company, I created a system to assess the risk of car accidents on selected routes. The system evaluates the risk level once a driver selects a route, and if the risk is high, it provides warnings and recommendations.
+## Projects Overview
 
-The project aims to develop a system for assessing the risk of car accidents based on the driver's route. The system will analyze the probability of accidents using historical data and warn drivers about high-risk routes.
+1. **Exploratory Data Analysis**
+   - **Description**: Analysis and visualization of datasets to uncover patterns, trends, and insights.
+   - **Tools**: Python, pandas, matplotlib, seaborn.
+   - **Example Project**: Analyzing customer data to identify purchasing trends.
 
-### Research Objectives:
+2. **Machine Learning Models**
+   - **Description**: Development and evaluation of machine learning models for predictive analytics.
+   - **Tools**: scikit-learn, pandas, numpy.
+   - **Example Project**: Predicting customer churn using classification models.
 
-* Develop a model to predict the probability of car accidents based on historical data
-* Identify key factors influencing accident risk
-* Evaluate the feasibility of creating a system that warns drivers about high accident risk
-* Provide recommendations to improve the model and system, including the need for additional car equipment such as sensors or cameras
+3. **Database Management**
+   - **Description**: Writing advanced SQL queries and managing databases for data retrieval and manipulation.
+   - **Tools**: SQL, PostgreSQL.
+   - **Example Project**: Creating and querying a database of retail transactions.
 
-### Steps Taken
+4. **Big Data Processing**
+   - **Description**: Processing and analyzing large datasets using big data technologies.
+   - **Tools**: Apache Spark, Hadoop.
+   - **Example Project**: Analyzing web server logs to identify user behavior patterns.
 
-1. **Data Loading and Exploration**
-    - Connected to the database and loaded tables using SQL.
-    - Explored the tables to ensure data completeness and identified common keys for linking tables.
+5. **Deep Learning Applications**
+   - **Description**: Implementing deep learning models for tasks such as image and text processing.
+   - **Tools**: TensorFlow, Keras, PyTorch.
+   - **Example Project**: Building a neural network for image recognition.
 
-2. **Statistical Analysis of Accident Factors**
-    - Analyzed monthly accident trends and created visualizations.
-    - Identified critical analytical tasks for team members, such as analyzing vehicle damage severity and common accident causes.
+6. **Team Projects on Real Data**
+   - **Description**: Collaborative projects using real-world data to tackle complex problems and enhance portfolio.
+   - **Tools**: Git, GitHub, command line.
+   - **Example Project**: Developing a recommendation system as a team.
 
-3. **Model Development for Risk Assessment**
-    - Prepared the dataset based on initial assumptions: selected car-related accidents with significant damage, using data from 2012.
-    - Conducted statistical analysis to select relevant factors, such as party type and sobriety level.
+## Repository Structure
 
-4. **Model Selection and Evaluation**
-    - Developed multiple models with hyperparameter tuning.
-    - Selected the best model based on business-related metrics and created a comparative table of results.
-
-5. **Model Testing and Analysis**
-    - Conducted a confusion matrix analysis and plotted precision and recall.
-    - Analyzed the importance of key factors influencing accident probability.
-    - Conducted additional research on the most important factor, party sobriety, and suggested equipping cars with breathalyzers and cameras.
-
-6. **Conclusion**
-    - Summarized the best model and evaluated the feasibility of creating an adequate risk assessment system.
-    - Identified additional factors for future data collection to improve the model.
-
-## Entity-Relationship (ER) Description
-
-The database consists of four main tables: **case_ids**, **vehicles**, **collisions**, and **parties**. Below is the ER diagram and a detailed description of each table and their relationships:
-
-![ER Diagram](image.png)
-
-### Tables
-
-- **case_ids**
-    - `case_id` (text): Unique identifier for each case.
-    - `Case_id` (text): Alternative identifier for the case.
-
-- **vehicles**
-    - `id` (integer): Unique identifier for each vehicle entry.
-    - `case_id` (text): Foreign key referencing the `case_id` in the **case_ids** table.
-    - `party_number` (integer): Identifier for the party involved in the accident.
-    - `vehicle_type` (text): Type of vehicle.
-    - `vehicle_transmission` (text): Transmission type of the vehicle.
-    - `vehicle_age` (integer): Age of the vehicle.
-
-- **collisions**
-    - `case_id` (text): Unique identifier for each collision, linked to **case_ids**.
-    - `county_city_location` (text): Location of the collision.
-    - `county_location` (text): Detailed location within the county.
-    - `distance` (real): Distance covered.
-    - `direction` (text): Direction of travel.
-    - `intersection` (integer): Indicates if the collision occurred at an intersection.
-    - `weather_1` (text): Weather conditions at the time of the collision.
-    - `location_type` (text): Type of location (urban, rural, etc.).
-    - `collision_damage` (text): Extent of the damage.
-    - `party_count` (integer): Number of parties involved.
-    - `primary_collision_factor` (text): Main factor contributing to the collision.
-    - `pcf_violation_category` (text): Violation category.
-    - `type_of_collision` (text): Type of collision (rear-end, side-impact, etc.).
-    - `motor_vehicle_involved_with` (text): Other vehicles involved.
-    - `road_surface` (text): Condition of the road surface.
-    - `road_condition_1` (text): Additional road condition details.
-    - `lighting` (text): Lighting conditions at the time of the collision.
-    - `control_device` (text): Traffic control devices in use.
-    - `collision_date` (date): Date of the collision.
-    - `collision_time` (time): Time of the collision.
-
-- **parties**
-    - `id` (integer): Unique identifier for each party entry.
-    - `case_id` (text): Foreign key referencing the `case_id` in the **collisions** table.
-    - `party_number` (integer): Identifier for the party involved in the accident.
-    - `party_type` (text): Type of party (driver, pedestrian, etc.).
-    - `at_fault` (integer): Indicates if the party was at fault.
-    - `insurance_premium` (integer): Insurance premium amount.
-    - `party_sobriety` (text): Sobriety level of the party.
-    - `party_drug_physical` (text): Drug or physical condition of the party.
-    - `cellphone_in_use` (integer): Indicates if a cellphone was in use during the collision.
-
-### Relationships
-
-- **case_ids** to **vehicles**: One-to-many relationship through `case_id`.
-- **case_ids** to **collisions**: One-to-one relationship through `case_id`.
-- **collisions** to **parties**: One-to-many relationship through `case_id`.
+Each project is contained in its own directory with the following structure:
+  - `README.md`: Detailed project description, objectives, methodology, and results.
+  - `notebooks/`: Jupyter notebooks with data analysis and model development.
+  - `scripts/`: Python scripts for data preprocessing, model training, and evaluation.
+  - `data/`: Datasets used in the project (if publicly available).
+  - `results/`: Outputs of analyses and models, such as graphs, reports, and predictions.
